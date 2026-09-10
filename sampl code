@@ -1,0 +1,73 @@
+1. Read an image and convert to grayscale
+python
+Copy
+Edit
+import cv2
+
+img = cv2.imread('sample.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+cv2.imshow('Grayscale Image', gray)
+cv2.waitKey(0)
+cv2.destroyAllWindows()2. Convert image to blur using GaussianBlur
+python
+Copy
+Edit
+import cv2
+
+img = cv2.imread('sample.jpg')
+blur = cv2.GaussianBlur(img, (5, 5), 0)
+
+cv2.imshow('Blurred Image', blur)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+✅ 3. Outline image using Canny edge detector
+python
+Copy
+Edit
+import cv2
+
+img = cv2.imread('sample.jpg', 0)
+edges = cv2.Canny(img, 100, 200)
+
+cv2.imshow('Edges', edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+✅ 4. Dilate the image
+python
+Copy
+Edit
+import cv2
+import numpy as np
+
+img = cv2.imread('sample.jpg', 0)
+kernel = np.ones((5,5), np.uint8)
+dilated = cv2.dilate(img, kernel, iterations=1)
+
+cv2.imshow('Dilated Image', dilated)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+ 5. Erode the image
+python
+Copy
+Edit
+import cv2
+import numpy as np
+
+img = cv2.imread('sample.jpg', 0)
+kernel = np.ones((5,5), np.uint8)
+eroded = cv2.erode(img, kernel, iterations=1)
+
+cv2.imshow('Eroded Image', eroded)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+✅ 6. Read video and play in slow and fast motion
+python
+Copy
+Edit
+import cv2
+
+cap = cv2.VideoCapture('video.mp4')
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
